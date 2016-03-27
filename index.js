@@ -89,6 +89,10 @@ function parseTermBuffer(bufPair, name) {
 module.exports = function (term) {
 	term = term || process.env.TERM || 'dummy';
 
+	if (term === 'dummy') {
+		return {};
+	}
+
 	var infoBuffer = getTerminfoBuffer(term);
 	return parseTermBuffer(infoBuffer, term);
 };
