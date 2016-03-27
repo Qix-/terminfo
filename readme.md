@@ -15,7 +15,9 @@ $ npm install --save terminfo
 ```js
 const terminfo = require('terminfo');
 
-var xterm256 = terminfo('xterm-256color');
+const xterm256 = terminfo('xterm-256color');
+
+console.log(xterm256.enterStandoutMode + 'hello!' + xterm256.exitStandoutMode);
 ```
 
 
