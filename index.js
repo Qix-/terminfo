@@ -87,6 +87,10 @@ function parseTermBuffer(bufPair, name) {
 }
 
 module.exports = function (term) {
+	if ((!term && process.platform === 'win32') || term === 'win32') {
+		return require('./windows-profile.json');
+	}
+
 	term = term || process.env.TERM || 'dummy';
 
 	if (term === 'dummy') {

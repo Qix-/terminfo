@@ -15,3 +15,10 @@ test('dummy', t => {
 
 	t.ok(Object.keys(caps).length === 0);
 });
+
+test('windows', t => {
+	var caps = terminfo('win32');
+
+	t.ok(caps.maxColors === 8);
+	t.ok(caps.columns === 80);
+});
