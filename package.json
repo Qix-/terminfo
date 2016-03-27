@@ -1,0 +1,37 @@
+{
+  "name": "terminfo",
+  "version": "0.1.0",
+  "description": "Efficiently read terminfo information",
+  "license": "MIT",
+  "repository": "chalk/terminfo",
+  "author": {
+    "name": "Joshua Junon",
+    "url": "https://github.com/qix-"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "terminfo",
+    "termcap",
+    "terminal",
+    "console",
+    "term",
+    "info",
+    "capabilities",
+    "support",
+    "color",
+    "styles"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.12.0",
+    "xo": "^0.12.1"
+  }
+}
