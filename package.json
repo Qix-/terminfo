@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Efficiently read terminfo information",
   "license": "MIT",
-  "repository": "chalk/terminfo",
+  "repository": "qix-/terminfo",
   "author": {
     "name": "Joshua Junon",
     "url": "https://github.com/qix-"
@@ -15,7 +15,11 @@
     "test": "xo && ava"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "number-opts.json",
+    "boolean-opts.json",
+    "string-opts.json",
+    "windows-profile.json"
   ],
   "keywords": [
     "terminfo",
