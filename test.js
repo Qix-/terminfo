@@ -1,6 +1,8 @@
 import test from 'ava';
 import terminfo from './';
 
+console.log('TERM:', process.env.TERM);
+
 test('xterm', t => {
 	var caps = terminfo('xterm');
 
