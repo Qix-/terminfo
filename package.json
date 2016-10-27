@@ -1,6 +1,6 @@
 {
   "name": "terminfo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Efficiently read terminfo information",
   "license": "MIT",
   "repository": "qix-/terminfo",
