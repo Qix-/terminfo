@@ -1,4 +1,4 @@
-# Terminfo [![Build Status](https://travis-ci.org/chalk/terminfo.svg?branch=master)](https://travis-ci.org/chalk/terminfo)
+# Terminfo [![Build Status](https://travis-ci.org/Qix-/terminfo.svg?branch=master)](https://travis-ci.org/Qix-/terminfo)
 
 > Parse the terminfo database
 
