@@ -1,8 +1,8 @@
 import test from 'ava';
 import terminfo from './';
 
-test('xterm-256color', t => {
-	var caps = terminfo('xterm-256color');
+test('xterm', t => {
+	var caps = terminfo('xterm');
 
 	t.ok(caps.bell === '\u0007');
 	t.ok(caps.clrEol === '\u001b[K');
