@@ -36,7 +36,7 @@ function parseTermBuffer(bufPair, name) {
 	var magic = buf.readInt16LE(offset);
 	offset += 2;
 
-	if (magic !== 0x11A) {
+	if (magic !== 0x11A && magic !== 0x21E) {
 		throw new Error('terminfo for ' + name + ' has invalid magic number');
 	}
 
@@ -65,14 +65,16 @@ function parseTermBuffer(bufPair, name) {
 	offset += result.boolSize;
 	offset += offset % 2; // shorts are aligned to short boundary in file
 
-	// numbers
+	// ncurses 6.1 widened numeric capabilities, but not string offsets.
+	var numWidth = magic === 0x21E ? 4 : 2;
 	for (i = 0; i < result.numCount && i < numberOptions.length; i++) {
-		var num = buf.readInt16LE(offset + (2 * i));
+		var pos = offset + (numWidth * i);
+		var num = numWidth === 4 ? buf.readInt32LE(pos) : buf.readInt16LE(pos);
 		if (num !== -1) {
 			result[numberOptions[i]] = num;
 		}
 	}
-	offset += 2 * result.numCount;
+	offset += numWidth * result.numCount;
 
 	// strings
 	var offsetTable = offset + (result.offCount * 2);

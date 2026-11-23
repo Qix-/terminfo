@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import test from 'ava';
 import terminfo from './';
 
@@ -23,4 +25,21 @@ test('windows', t => {
 
 	t.ok(caps.maxColors === 8);
 	t.ok(caps.columns === 80);
+});
+
+test('32-bit numeric capabilities', t => {
+	const fixture = fs.readFileSync(path.join(__dirname, 'test/fixtures/t/test-wide'));
+	const readFileSync = fs.readFileSync;
+	let caps;
+	try {
+		fs.readFileSync = () => fixture;
+		caps = terminfo('test-wide');
+	} finally {
+		fs.readFileSync = readFileSync;
+	}
+
+	t.is(caps.columns, 80);
+	t.is(caps.maxPairs, 65536);
+	t.is(caps.initTabs, undefined);
+	t.is(caps.bell, '\u0007');
 });
