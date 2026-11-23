@@ -1,0 +1,2 @@
+test-wide|32-bit numeric capabilities,
+	lpix, cols#80, pairs#65536, bel=^G,
